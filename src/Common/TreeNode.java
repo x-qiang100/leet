@@ -56,12 +56,12 @@ public class TreeNode {
 
     static void pre(TreeNode node){
         if(node == null){
+            System.out.print("null ");
             return;
         }
         pre(node.left);
         System.out.print(node.val+" ");
         pre(node.right);
-
     }
 
 
