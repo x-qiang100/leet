@@ -1,5 +1,8 @@
 package Common;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author xq
  * @Date 2021/7/31 上午9:13
@@ -25,6 +28,7 @@ public class TreeNode {
         this.right = right;
     }
 
+
     public static TreeNode create(Integer[] nums){
         int l = nums.length;
         TreeNode root = new TreeNode( );
@@ -38,40 +42,90 @@ public class TreeNode {
             if(nums[i] != null){
                 TreeNode node = new TreeNode(nums[i]);
                 trees[i] = node;
-
                 if(i%2 == 1){
                     trees[(i - 1)/2].left = node;
                 }else {
                     trees[(i - 1)/2].right = node;
                 }
-
             }
         }
         return root;
     }
 
-    public static void show(TreeNode root){
-        pre(root );
+    public static TreeNode newCreate(Integer[] nums){
+        TreeNode root = new TreeNode();
+        int l = nums.length;
+        if( l == 0 || nums[0]==null) return null;
+        //initialize heap
+        List<TreeNode> list = new ArrayList<>();
+        list.add(null);
+        root.val = nums[0];
+        list.add(root);
+
+        int idx = 2;
+        for (int i = 1; i < l; i++) {
+            //stop null error at the end of array
+            int flag = idx;
+            while (list.get(idx/2) == null){
+                if(idx/flag == 2){
+                    return root;
+                }
+                list.add(null);
+                list.add(null);
+                idx++;
+                idx++;
+            }
+
+            TreeNode node = null;
+            if(nums[i] != null){
+                node = new TreeNode(nums[i]);
+            }
+            list.add(node);
+            if(idx%2 == 0){
+                list.get(idx/2).left =node;
+            }else {
+                list.get(idx/2).right = node;
+            }
+            idx++;
+        }
+        return root;
     }
 
+
+
+    public static void show(TreeNode root){
+        pre(root );
+        System.out.println();
+    }
     static void pre(TreeNode node){
-        if(node == null){
-            System.out.print("null ");
-            return;
-        }
-        pre(node.left);
+        if(node == null){ return; }
         System.out.print(node.val+" ");
+        pre(node.left);
         pre(node.right);
     }
 
 
-    public static void main(String[] args) {
-        TreeNode treeNode = create(new Integer[]{
-//                1, 2, 3, 4, 5, 6, 7
-                3,9,20,null,null,15,7
-        });
-        show(treeNode );
+    public static void showInorder(TreeNode root){
+        Inorder(root );
+        System.out.println();
+    }
+    static void Inorder(TreeNode node){
+        if(node == null){ return; }
+        Inorder(node.left);
+        System.out.print(node.val+" ");
+        Inorder(node.right);
+    }
 
+
+    public static void showPostorder(TreeNode root){
+        Postorder(root );
+        System.out.println();
+    }
+    static void Postorder(TreeNode node){
+        if(node == null){ return; }
+        Postorder(node.left);
+        Postorder(node.right);
+        System.out.print(node.val+" ");
     }
 
 

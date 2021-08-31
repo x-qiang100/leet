@@ -36,10 +36,10 @@ public class solu413 {
                     i++;
                     sum+=pre;
                 }
-                if(pre > 0){
-                    i++;
-                    i++;
-                }
+//                if(pre > 0){
+//                    i++;
+//                    i++;
+//                }
             }
 //            System.out.println("Arrays.toString(count) = " + Arrays.toString(count));
 //            for (int i : count) {
