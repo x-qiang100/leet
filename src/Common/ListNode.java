@@ -8,9 +8,9 @@ package Common;
  */
 
 public class ListNode {
-    int val;
-    ListNode next;
-    ListNode(){}
+    public int val;
+    public ListNode next;
+    public ListNode(){}
     public ListNode(int val) {
         this.val = val;
     }
@@ -19,7 +19,8 @@ public class ListNode {
         this.next = next;
     }
 
-    static ListNode create(int[] ints){
+
+    public static ListNode create(int[] ints){
         int l = ints.length;
         if(l == 0){
             return new ListNode();
@@ -34,7 +35,7 @@ public class ListNode {
         return head;
     }
 
-    static void show(ListNode head){
+    public static void show(ListNode head){
         ListNode p = head;
         System.out.print("{");
         while (p != null){
