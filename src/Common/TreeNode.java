@@ -92,7 +92,10 @@ public class TreeNode {
     }
 
 
-
+    /**
+     * 先序
+     * @param root
+     */
     public static void show(TreeNode root){
         pre(root );
         System.out.println();
@@ -105,6 +108,10 @@ public class TreeNode {
     }
 
 
+    /**
+     * 中序
+     * @param root
+     */
     public static void showInorder(TreeNode root){
         Inorder(root );
         System.out.println();
@@ -117,6 +124,10 @@ public class TreeNode {
     }
 
 
+    /**
+     * 后序
+     * @param root
+     */
     public static void showPostorder(TreeNode root){
         Postorder(root );
         System.out.println();
