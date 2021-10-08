@@ -91,12 +91,21 @@ public class TreeNode {
         return root;
     }
 
+    public static void show(TreeNode root){
+        System.out.println("先序：");
+        showPre(root);
+        System.out.println("中序：");
+        showInorder(root);
+        System.out.println("后序：");
+        showPostorder(root);
+    }
+
 
     /**
      * 先序
      * @param root
      */
-    public static void show(TreeNode root){
+    public static void showPre(TreeNode root){
         pre(root );
         System.out.println();
     }
